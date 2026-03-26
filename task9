@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void manualSwap(char &a, char &b) {
+    char temp = a;
+    a = b;
+    b = temp;
+}
+int getLength(char str[]) {
+    int len = 0;
+    while (str[len] != '\0') len++;
+    return len;
+}
+void permute(char str[], int l, int r) {
+    if (l == r) {
+        cout << str << "\n";
+    } else {
+        for (int i = l; i <= r; i++) {
+            manualSwap(str[l], str[i]);
+            permute(str, l + 1, r);
+            manualSwap(str[l], str[i]);
+        }
+    }
+}
+int main() {
+    char str[100];
+    cin >> str;
+    permute(str, 0, getLength(str) - 1);
+    return 0;
+}
