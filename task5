@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+void reverseSequence(int n) {
+    if (n == 0) return;
+    int val;
+    cin >> val;
+    reverseSequence(n - 1);
+    cout << val << " ";
+}
+int main() {
+    int n;
+    cin >> n;
+    reverseSequence(n);
+    cout << "\n";
+    return 0;
+}
