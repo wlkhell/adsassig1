@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+void printSequences(int n, int k, int current[], int depth) {
+    if (depth == n) {
+        for (int i = 0; i < n; i++) {
+            cout << current[i] << " ";
+        }
+        cout << "\n";
+        return;
+    }
+    for (int i = 1; i <= k; i++) {
+        current[depth] = i;
+        printSequences(n, k, current, depth + 1);
+    }
+}
+int main() {
+    int n, k;
+    cin >> n >> k;
+    int buffer[20];
+    printSequences(n, k, buffer, 0);
+    return 0;
+}
