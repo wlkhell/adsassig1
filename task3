@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int sumIntegers(int n) {
+    if (n == 0) return 0;
+    return n + sumIntegers(n - 1);
+}
+int main() {
+    int n = 5;
+    cout << sumIntegers(n) << "\n";
+    return 0;
+}
