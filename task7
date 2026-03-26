@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+void fillSpiral(int arr[100][100], int val, int r, int c, int size) {
+    if (size <= 0) return;
+    if (size == 1) {
+        arr[r][c] = val;
+        return;
+    }
+    for (int i = 0; i < size - 1; i++) arr[r][c + i] = val++;
+    for (int i = 0; i < size - 1; i++) arr[r + i][c + size - 1] = val++;
+    for (int i = 0; i < size - 1; i++) arr[r + size - 1][c + size - 1 - i] = val++;
+    for (int i = 0; i < size - 1; i++) arr[r + size - 1 - i][c] = val++;
+    fillSpiral(arr, val, r + 1, c + 1, size - 2);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int matrix[100][100];
+    fillSpiral(matrix, 1, 0, 0, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
